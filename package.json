@@ -1,0 +1,19 @@
+{
+  "name": "chrelyonly-wx-sdk-client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node main.js env=development ",
+    "prod": "node main.js env=production "
+  },
+  "private": true,
+  "dependencies": {
+    "axios": "^1.9.0",
+    "body-parser": "^2.2.0",
+    "express": "^5.1.0",
+    "mqtt": "^5.13.0",
+    "xml2js": "^0.6.2"
+  }
+}
