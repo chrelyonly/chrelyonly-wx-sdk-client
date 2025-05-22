@@ -17,7 +17,7 @@ export let PARENT_WEB_API_DOMAIN
 // 本地web-api地址   主要用于静态文件服务器,用于让别人访问
 export let LOCAL_URL
 // 用户id
-export let CLIENT_ID = "chrelyonly-09178829940310457932361054731207";
+export let CLIENT_ID = "";
 if (!CLIENT_ID){
     console.error("用户id不能为空,用户id从后端获取,填错收不到消息")
     process.exit(1);
