@@ -56,7 +56,7 @@ export const mqttMain = (callback) => {
         mqttServer.on("message", (topic, message) => {
             try {
                 if (topicUrl === topic){
-                    // console.log("收到消息:", topic);
+                    console.log("收到消息:", JSON.parse(message));
                     // console.log(message.toString());
                     // 消息可能是list,循环推送
                     let info = JSON.parse(message.toString());
