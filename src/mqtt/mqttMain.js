@@ -20,10 +20,10 @@ const createMqttClient = () => {
     });
 //监听连接状态
     client.on("connect", () => {
-        console.log("连接成功");
+        log.info("连接成功");
         client.subscribe(topicUrl, err => {
             if (!err) {
-                console.log("订阅成功:" + topicUrl);
+                log.info("订阅成功:" + topicUrl);
             }
         });
     });
@@ -32,15 +32,15 @@ const createMqttClient = () => {
     });
 
     client.on("reconnect", () => {
-        console.log("MQTT 正在重连...");
+        log.info("MQTT 正在重连...");
     });
 
     client.on("offline", () => {
-        console.log("MQTT 离线，等待自动重连...");
+        log.info("MQTT 离线，等待自动重连...");
     });
 
     client.on("close", () => {
-        console.log("MQTT 连接关闭，尝试重新连接...");
+        log.info("MQTT 连接关闭，尝试重新连接...");
     });
     return client;
 }
@@ -56,8 +56,8 @@ export const mqttMain = (callback) => {
         mqttServer.on("message", (topic, message) => {
             try {
                 if (topicUrl === topic){
-                    console.log("收到消息:", JSON.parse(message));
-                    // console.log(message.toString());
+                    log.info("收到消息:", JSON.parse(message));
+                    // log.info(message.toString());
                     // 消息可能是list,循环推送
                     let info = JSON.parse(message.toString());
                     let delay = 1000; // 延迟时间 1000ms（1秒）,伪造列队
@@ -72,7 +72,7 @@ export const mqttMain = (callback) => {
                     sendMessage(0); // 从索引0开始
                 }
             }catch (e){
-                console.log("mqttMain error",e)
+                log.info("mqttMain error",e)
             }
         });
 }
