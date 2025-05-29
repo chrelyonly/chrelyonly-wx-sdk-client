@@ -7,4 +7,4 @@ docker pull crpi-edu7p0nfaclm2kiy.cn-chengdu.personal.cr.aliyuncs.com/chrelyonly
 ```
 pnpm i
 ```
-
+## CLIENT_ID填写从后端获取的client_id
